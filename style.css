@@ -15,6 +15,7 @@ Author: Artur Pryka
   --global--color-text-black: #111;
   --footer--font-family: var(--font-base);
   --pagination--font-size: var(--global--font-size-xs);
+  --button--border-radius: 36px;
 }
 
 body {
@@ -183,13 +184,15 @@ body:before {
 }
 
 .post-thumbnail-inner,
-.post-thumbnail {
+.post-thumbnail,
+.entry-content p:has(img) {
   overflow: hidden;
   display: block;
 }
 
 .post-thumbnail-inner img,
-.post-thumbnail img {
+.post-thumbnail img,
+.entry-content p img {
   will-change: transform;
   backface-visibility: hidden;
   transition: transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -197,7 +200,8 @@ body:before {
 }
 
 .post-thumbnail-inner:hover img,
-.post-thumbnail:hover img {
+.post-thumbnail:hover img,
+.entry-content p:hover img {
   transform: scale(1.05) translateZ(0);
 }
 
@@ -230,4 +234,32 @@ body:before {
 
 .singular .entry-header {
   border-bottom: none;
+}
+
+.single .site-main > article > .entry-footer {
+  border: 0;
+  position: relative;
+}
+
+.single .site-main > article > .entry-footer:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50px;
+  height: 1px;
+  background-color: var(--global--color-white);
+  transform: translateX(-50%);
+}
+
+.post-navigation .post-title {
+  font-size: var(--global--font-size-md);
+}
+
+.post-navigation .meta-nav {
+  font-size: var(--global--font-size-xs);
+}
+
+.site .button, button, input[type=submit], input[type=reset], .wp-block-search .wp-block-search__button, .wp-block-button .wp-block-button__link, .wp-block-file a.wp-block-file__button {
+  transition: all 250ms ease;
 }
