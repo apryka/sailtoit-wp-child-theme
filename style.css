@@ -16,10 +16,13 @@ Author: Artur Pryka
   --footer--font-family: var(--font-base);
   --pagination--font-size: var(--global--font-size-xs);
   --button--border-radius: 36px;
+
+	--global--font-weight-light: 300;
+	--global--font-weight-bold: 600;
 }
 
 body {
-  font-weight: 300;
+  font-weight: var(--global--font-weight-light);
 }
 
 .headline strong {
@@ -94,7 +97,6 @@ body {
 }
 
 .entry-header {
-  max-width: 60ch;
   margin-bottom: 160px;
 }
 
@@ -262,4 +264,17 @@ body:before {
 
 .site .button, button, input[type=submit], input[type=reset], .wp-block-search .wp-block-search__button, .wp-block-button .wp-block-button__link, .wp-block-file a.wp-block-file__button {
   transition: all 250ms ease;
+}
+
+h1.page-title, h2.page-title {
+  font-weight: var(--global--font-weight-light);
+  font-family: var(--font-base);
+  font-size: var(--global--font-size-xs);
+}
+
+h1.page-title span, h2.page-title span {
+  display: block;
+  font-weight: var(--heading--font-weight);
+  font-family: var(--font-headings);
+  font-size: var(--global--font-size-page-title);
 }
