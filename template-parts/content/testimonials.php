@@ -5,7 +5,7 @@
 ?>
 
 <?php
-  $title = $args['title'] != null ? $args['title'] : __('Latest testimonials', 'worko-cloudnine');
+  $title = $args['title'] != null ? $args['title'] : __('Latest testimonials', 'twentytwentyone');
   $limit = $args['limit'] != null ? $args['limit'] : 10;
 ?>
 
@@ -44,8 +44,6 @@
 
 </div>
 
-<?php } ?>
-
 <script>
   const swiper = new Swiper(".swiper", {
     slidesPerView: 3,
@@ -56,3 +54,6 @@
     },
   });
 </script>
+
+<?php } ?>
+

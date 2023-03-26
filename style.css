@@ -278,3 +278,26 @@ h1.page-title span, h2.page-title span {
   font-family: var(--font-headings);
   font-size: var(--global--font-size-page-title);
 }
+
+.block-counter {
+  background-color: var(--global--color-background);
+  color: var(--global--color-primary);
+  padding-block: var(	--global--spacing-vertical);
+}
+
+.block-counter__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(	--global--spacing-vertical);
+  justify-content: center;
+  align-content: center;
+}
+
+.block-counter-item {
+  text-align: center;
+}
+
+.block-counter-item__value {
+  font-size: var(--heading--font-size-h3);
+  font-weight: var(--heading--font-weight-strong);
+}

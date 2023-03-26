@@ -23,7 +23,8 @@ function wp_child_theme() {
         array( $parenthandle ),
         $theme->get('Version') // this only works if you have Version in the style header
     );
-    wp_enqueue_script("child-scripts", get_stylesheet_directory_uri() . "/js/view.js", array("jquery"), "6.1.1", true);
+    wp_enqueue_script("child-scripts-count-up", get_stylesheet_directory_uri() . "/js/countUp.min.js", array("jquery"), "6.1.1", true);
+    wp_enqueue_script("child-scripts-counter", get_stylesheet_directory_uri() . "/js/counter.js", array("jquery"), "6.1.1", true);
 }
 
 function wp_child_theme_register_settings() 
