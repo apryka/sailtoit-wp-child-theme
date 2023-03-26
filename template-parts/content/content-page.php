@@ -34,9 +34,10 @@
 	<div class="entry-content">
 		<?php
 			$avatar = get_field('avatar');
+			$avatarSize = get_field('avatar_size');
 			if ( is_front_page() && isset($avatar) ) {
 		?>
-			<img src="<?php echo $avatar; ?>" alt="avatar" class="entry-content__avatar" />
+			<img src="<?php echo $avatar; ?>" alt="avatar" class="entry-content__avatar" <?php if ( isset($avatarSize) ) { ?> style=" width:<?php echo $avatarSize ?>px; height: <?php echo $avatarSize ?>px;" <?php } ?> />
 		<?php } ?>
 		<div class="entry-content__title"><?php the_title(); ?></div>
 		<?php

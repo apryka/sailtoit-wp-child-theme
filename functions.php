@@ -53,3 +53,67 @@ function wp_child_theme_register_options_page_form()
 </div>
 <?php
 }
+
+add_action('customize_register','customizer_options');
+function customizer_options( $wp_customize ) {
+
+  $wp_customize->add_setting( 'logo_width', array(
+    'default' => __( '', 'twentytwentyone' ),
+  ) );
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'custom_logo_width',
+            array(
+                'label'          => __( 'Logo width', 'twentytwentyone' ),
+                'section'        => 'title_tagline',
+                'settings'       => 'logo_width',
+                'type'           => 'text',
+            )
+        )
+    );
+
+};
+
+function custom_logo_width( $attr, $attachment, $size ) {
+
+	if ( is_admin() ) {
+		return $attr;
+	}
+
+	if ( isset( $attr['class'] ) && false !== strpos( $attr['class'], 'custom-logo' ) ) {
+
+        $custom_logo_width = get_theme_mod( 'logo_width' );
+        if ( isset($custom_logo_width) ) {
+            $attr['style'] = isset( $attr['style'] ) ? $attr['style'] : '';
+            $attr['style'] = 'width:' . $custom_logo_width . 'px;' . $attr['style']; 
+        }
+
+		return $attr;
+	}
+
+	$width  = false;
+	$height = false;
+
+	if ( is_array( $size ) ) {
+		$width  = (int) $size[0];
+		$height = (int) $size[1];
+	} elseif ( $attachment && is_object( $attachment ) && $attachment->ID ) {
+		$meta = wp_get_attachment_metadata( $attachment->ID );
+		if ( isset( $meta['width'] ) && isset( $meta['height'] ) ) {
+			$width  = (int) $meta['width'];
+			$height = (int) $meta['height'];
+		}
+	}
+
+	if ( $width && $height ) {
+
+		// Add style.
+		$attr['style'] = isset( $attr['style'] ) ? $attr['style'] : '';
+		$attr['style'] = 'width:100%;height:' . round( 100 * $height / $width, 2 ) . '%;max-width:' . $width . 'px;' . $attr['style'];
+	}
+
+	return $attr;
+}
+add_filter( 'wp_get_attachment_image_attributes', 'custom_logo_width', 10, 3 );
