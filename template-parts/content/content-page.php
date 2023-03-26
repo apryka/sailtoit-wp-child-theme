@@ -54,6 +54,17 @@
 		?>
 	</div><!-- .entry-content -->
 
+	<?php 
+	 if ( is_front_page()) {
+	?>
+	<div class="testimonials-content">
+	<?php get_template_part( 'template-parts/content/testimonials', '', array(
+		'title' => "Opinie"
+	) ); ?>
+	</div>
+	<?php } ?>
+
+
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer default-max-width">
 			<?php
