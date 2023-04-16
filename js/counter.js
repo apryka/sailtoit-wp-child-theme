@@ -1,6 +1,8 @@
 function runCounterInView() {
   const counterSection = document.querySelector('.block-counter');
+  if (!counterSection) return;
   const counterItems = counterSection.querySelectorAll('[data-counter]');
+  if (!counterItems) return;
   const counters = [...counterItems].map((item) => {
     const value = item.dataset.counter;
     if (value) {

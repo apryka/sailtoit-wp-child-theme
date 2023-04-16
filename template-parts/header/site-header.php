@@ -15,7 +15,14 @@ $wrapper_classes .= has_nav_menu( 'primary' ) ? ' has-menu' : '';
 
 <header id="masthead" class="<?php echo esc_attr( $wrapper_classes ); ?>">
 
-	<?php get_template_part( 'template-parts/header/site-branding' ); ?>
+	<div class="site-header-container">
+		<?php get_template_part( 'template-parts/header/site-branding' ); ?>
+		<?php get_template_part( 'searchform' ); ?>
+		<div class="language-switcher">
+			<?php pll_the_languages( array( 'dropdown' => 1 ) ); ?>
+		</div>
+	</div>
+
 	<?php get_template_part( 'template-parts/header/site-nav' ); ?>
 
 </header><!-- #masthead -->

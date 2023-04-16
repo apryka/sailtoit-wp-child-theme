@@ -19,6 +19,29 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
+
+		<?php $post_tags = get_the_tags(); ?>
+		<?php if (count($post_tags)) { ?>
+			<ul class="color-tags-list">
+		
+			<?php
+				foreach( $post_tags as $tag) :
+					$tag_name = $tag->name;
+					$link = get_tag_link($tag);
+					$identifier = "post_tag_".$tag->term_id;
+					$color = get_field('color', $identifier);
+			?>
+
+			<li>
+				<a href="<?php echo($link); ?>" class="color-tag" style="border-color: <?php echo($color); ?>">
+					<?php echo($tag_name); ?>
+				</a>
+			</li>
+			
+			<?php endforeach; ?>
+			</ul>
+		<?php	}	?>
+
 		<?php
 		the_content();
 

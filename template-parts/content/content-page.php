@@ -39,6 +39,14 @@
 		?>
 			<img src="<?php echo $avatar; ?>" alt="avatar" class="entry-content__avatar" <?php if ( isset($avatarSize) ) { ?> style=" width:<?php echo $avatarSize ?>px; height: <?php echo $avatarSize ?>px;" <?php } ?> />
 		<?php } ?>
+		<?php
+			$front_page_id = get_option('page_on_front');
+			$avatar_front_page = get_field('avatar', $front_page_id );
+			$avatarSize_front_page = get_field('avatar_size', $front_page_id);
+			if (  is_page('O mnie') && isset($avatar_front_page) ) {
+		?>
+			<img src="<?php echo $avatar_front_page; ?>" alt="avatar" class="entry-content__avatar" <?php if ( isset($avatarSize_front_page) ) { ?> style=" width:<?php echo $avatarSize_front_page ?>px; height: <?php echo $avatarSize_front_page ?>px;" <?php } ?> />
+		<?php } ?>
 		<div class="entry-content__title"><?php the_title(); ?></div>
 		<?php
 		the_content();
