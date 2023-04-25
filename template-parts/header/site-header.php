@@ -17,12 +17,12 @@ $wrapper_classes .= has_nav_menu( 'primary' ) ? ' has-menu' : '';
 
 	<div class="site-header-container">
 		<?php get_template_part( 'template-parts/header/site-branding' ); ?>
-		<?php get_template_part( 'searchform' ); ?>
+		<?php //get_template_part( 'searchform' ); ?>
+		<?php get_template_part( 'template-parts/header/site-nav' ); ?>
 		<div class="language-switcher">
 			<?php pll_the_languages( array( 'dropdown' => 1 ) ); ?>
 		</div>
 	</div>
 
-	<?php get_template_part( 'template-parts/header/site-nav' ); ?>
 
 </header><!-- #masthead -->

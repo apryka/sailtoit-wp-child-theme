@@ -75,6 +75,20 @@ function customizer_options( $wp_customize ) {
         )
     );
 
+    $wp_customize->add_setting( 'custom_mobile_menu_background', array(
+        'default'           => '#0e2e29',
+        'capability'        => 'edit_theme_options',
+        ) );
+
+    $wp_customize->add_control(
+        new WP_Customize_Color_Control(
+            $wp_customize, 
+            'mobile_menu_background', array(
+        'label'    => __('Mobile menu background', 'twentytwentyone'),
+        'section'  => 'colors',
+        'settings' => 'custom_mobile_menu_background',
+    )));
+
 };
 
 function custom_logo_width( $attr, $attachment, $size ) {

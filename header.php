@@ -29,6 +29,18 @@
 		<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	<?php } ?>
 	<?php wp_head(); ?>
+	<?php 
+		$custom_mobile_menu_background = get_theme_mod( 'custom_mobile_menu_background' );
+		if ( isset($custom_mobile_menu_background) ) {
+	?>
+	<style>
+		@media only screen and (max-width: 768px) {
+			#site-navigation #mega-menu-wrap-primary .mega-menu-toggle + #mega-menu-primary {
+				background: <?php echo($custom_mobile_menu_background); ?>
+			}
+		}
+	</style>
+	<?php } ?>
 </head>
 
 <body <?php body_class(); ?>>
