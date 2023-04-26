@@ -89,6 +89,20 @@ function customizer_options( $wp_customize ) {
         'settings' => 'custom_mobile_menu_background',
     )));
 
+    $wp_customize->add_setting( 'custom_mobile_menu_text_color', array(
+        'default'           => '#ffffff',
+        'capability'        => 'edit_theme_options',
+    ) );
+
+    $wp_customize->add_control(
+        new WP_Customize_Color_Control(
+            $wp_customize, 
+            'mobile_menu_text color', array(
+        'label'    => __('Mobile menu text color', 'twentytwentyone'),
+        'section'  => 'colors',
+        'settings' => 'custom_mobile_menu_text_color',
+    )));
+
 };
 
 function custom_logo_width( $attr, $attachment, $size ) {
