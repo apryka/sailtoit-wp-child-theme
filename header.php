@@ -30,19 +30,22 @@
 	<?php } ?>
 	<?php wp_head(); ?>
 	<?php 
-		$custom_mobile_menu_background = get_theme_mod( 'custom_mobile_menu_background' );
-		$custom_mobile_menu_text_color = get_theme_mod( 'custom_mobile_menu_text_color' );
-		if ( isset($custom_mobile_menu_background) || isset($custom_mobile_menu_text_color) ) {
+		$custom_dropdown_menu_background = get_theme_mod( 'custom_dropdown_menu_background' );
+		$custom_dropdown_menu_text_color = get_theme_mod( 'custom_dropdown_menu_text_color' );
+		if ( isset($custom_dropdown_menu_background) || isset($custom_dropdown_menu_text_color) ) {
 	?>
 	<style>
-		@media only screen and (max-width: 768px) {
-			#site-navigation #mega-menu-wrap-primary .mega-menu-toggle + #mega-menu-primary {
-				background: <?php echo($custom_mobile_menu_background); ?>
-			}
+		#site-navigation #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu {
+			background: <?php echo($custom_dropdown_menu_background); ?>
+		}
 
-			#site-navigation #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link {
-				color: <?php echo($custom_mobile_menu_text_color); ?>
-			}
+		#site-navigation #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-item li.mega-menu-item > a.mega-menu-link,
+		#site-navigation #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu li.mega-menu-column > ul.mega-sub-menu > li.mega-menu-item li.mega-menu-item > a.mega-menu-link,
+		#site-navigation #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-item > a.mega-menu-link,
+		#site-navigation #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu li.mega-menu-column > ul.mega-sub-menu > li.mega-menu-item > a.mega-menu-link,
+		#site-navigation #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-item,
+		#site-navigation #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu li.mega-menu-column > ul.mega-sub-menu > li.mega-menu-item {
+			color: <?php echo($custom_dropdown_menu_text_color); ?>
 		}
 	</style>
 	<?php } ?>
