@@ -62,18 +62,29 @@ body {
   transform: translateX(-50%);
 }
 
-.page .entry-content,
-.single-post .entry-content {
-  background: var(--global--color-white);
+.page .entry-content {
   padding-block-start: 100px;
   padding-block-end: 200px;
-  color: var(--global--color-text-black);
   position: relative;
 }
 
-.page .entry-content a,
-.single-post .entry-content a {
+.page .entry-content:not(.entry-content__inverted) {
+  background: var(--global--color-white);
+  color: var(--global--color-text-black);
+}
+
+.single-post .entry-content {
+  padding-block-start: 100px;
+  padding-block-end: 200px;
+  position: relative;
+}
+
+.page .entry-content a {
   color: var(--global--color-dark-green);
+  font-weight: 600;
+}
+
+.single-post .entry-content a {
   font-weight: 600;
 }
 

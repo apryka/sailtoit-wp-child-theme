@@ -31,7 +31,7 @@
 
 	<?php } ?>
 
-	<div class="entry-content">
+	<div class="entry-content <?php echo ( get_field('inverted_background') ) ? 'entry-content__inverted' : '' ?>">
 		<?php
 			$avatar = get_field('avatar');
 			$avatarSize = get_field('avatar_size');

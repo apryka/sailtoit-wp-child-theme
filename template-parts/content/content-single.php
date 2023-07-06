@@ -21,7 +21,7 @@
 	<div class="entry-content">
 
 		<?php $post_tags = get_the_tags(); ?>
-		<?php if (count($post_tags)) { ?>
+		<?php if ($post_tags && count($post_tags)) { ?>
 			<ul class="color-tags-list">
 		
 			<?php
